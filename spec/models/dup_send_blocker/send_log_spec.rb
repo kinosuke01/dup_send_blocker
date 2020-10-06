@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe DupSendBlocker::SendLog do
   describe "write_labels!" do
     it "test" do
