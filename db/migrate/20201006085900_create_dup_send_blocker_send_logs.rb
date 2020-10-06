@@ -13,10 +13,14 @@ class CreateDupSendBlockerSendLogs < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :dup_send_blocker_send_logs, [:label01]
-    add_index :dup_send_blocker_send_logs, [:label01, :label02]
-    add_index :dup_send_blocker_send_logs, [:label01, :label02, :label03]
-    add_index :dup_send_blocker_send_logs, [:label01, :label02, :label03, :label04]
-    add_index :dup_send_blocker_send_logs, [:label01, :label02, :label03, :label04, :label05], unique: true
+    add_index :dup_send_blocker_send_logs, [:label01], {
+      name: :index_dup_send_blocker_send_logs_on_label01
+    }
+    add_index :dup_send_blocker_send_logs, [:label01, :label02], {
+      name: :index_dup_send_blocker_send_logs_on_label01__02
+    }
+    add_index :dup_send_blocker_send_logs, [:label01, :label02, :label03], {
+      name: :index_dup_send_blocker_send_logs_on_label01__03
+    }
   end
 end

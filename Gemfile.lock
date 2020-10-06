@@ -59,6 +59,7 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
+    mysql2 (0.5.3)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     rack (1.6.13)
@@ -124,6 +125,7 @@ PLATFORMS
 
 DEPENDENCIES
   dup_send_blocker!
+  mysql2
   rspec-rails
   sqlite3
 

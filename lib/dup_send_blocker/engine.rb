@@ -3,7 +3,7 @@ module DupSendBlocker
     isolate_namespace DupSendBlocker
 
     config.generators do |g|
-      g.test_framework :rspec, fixture: false
+      g.test_framework :rspec
     end
   end
 end

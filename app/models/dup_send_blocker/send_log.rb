@@ -4,10 +4,10 @@ module DupSendBlocker
     end
 
     def self.write_labels!(labels = [])
-      labels = labels.slice(0..4)
+      labels = labels.slice(0..2)
       attrs = {}
       [
-        :label01, :label02, :label03, :label04, :label05
+        :label01, :label02, :label03
       ].each.with_index do |key, i|
         attrs[key] = labels[i].to_s
       end
