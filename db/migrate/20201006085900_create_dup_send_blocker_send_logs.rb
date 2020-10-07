@@ -6,8 +6,6 @@ class CreateDupSendBlockerSendLogs < ActiveRecord::Migration
       t.string :label01, null: false, default: ''
       t.string :label02, null: false, default: ''
       t.string :label03, null: false, default: ''
-      t.string :label04, null: false, default: ''
-      t.string :label05, null: false, default: ''
       t.string :error_message
 
       t.timestamps null: false

@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 20201006085900) do
     t.string   "label01",       limit: 255, default: "", null: false
     t.string   "label02",       limit: 255, default: "", null: false
     t.string   "label03",       limit: 255, default: "", null: false
-    t.string   "label04",       limit: 255, default: "", null: false
-    t.string   "label05",       limit: 255, default: "", null: false
     t.string   "error_message", limit: 255
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false

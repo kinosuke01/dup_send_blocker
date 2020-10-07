@@ -13,7 +13,7 @@ describe DupSendBlocker do
     context 'ブロックを渡さずに実行した場合' do
       subject { DupSendBlocker.perform!(labels3) }
       it '例外発生' do
-        expect { subject }.to raise_error(DupSendBlocker::BlockError)
+        expect { subject }.to raise_error(ArgumentError)
       end
     end
 
@@ -23,6 +23,7 @@ describe DupSendBlocker do
         DupSendBlocker.perform!(labels3) do
           result = sender.send
         end
+        result
       }
       it '実行できる' do
         expect(subject).to eq true
@@ -39,6 +40,7 @@ describe DupSendBlocker do
         DupSendBlocker.perform!(labels3) do
           result = sender.send
         end
+        result
       }
       it '実行できる' do
         expect(subject).to eq true
@@ -72,6 +74,7 @@ describe DupSendBlocker do
             DupSendBlocker.perform!(labels3) do
               result = sender.send
             end
+            result
           }
           it '実行できる' do
             expect(subject).to eq true
