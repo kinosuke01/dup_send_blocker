@@ -12,9 +12,9 @@ module DupSendBlocker
       raise ArgumentError.new('block is required.')
     end
 
-    instance = nil
+    send_log = nil
     begin
-      instance = DupSendBlocker::SendLog.write_labels!(labels)
+      send_log = DupSendBlocker::SendLog.write_labels!(labels)
     rescue ::DupSendBlocker::SendLog::DupLabelError => e
       raise BlockError.new(e.message)
     end
@@ -25,20 +25,14 @@ module DupSendBlocker
       res = yield
     rescue => e
       if send_error_is == :invalid
-        instance.delete
+        send_log.delete
       else # :valid
-        instance.update_columns({error_message: e.message})
+        send_log.update_columns({error_message: e.message})
       end
 
       raise e
     end
 
-    res
-  end
-
-  def self.perform(*args)
-    self.perform!(*args)
-  rescue BlockError
-    nil
+    {result: res, send_log: send_log}
   end
 end

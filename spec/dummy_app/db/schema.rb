@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20201006085900) do
     t.datetime "updated_at",                             null: false
   end
 
-  add_index "dup_send_blocker_send_logs", ["label01", "label02", "label03"], name: "index_dup_send_blocker_send_logs_on_label01__03", using: :btree
+  add_index "dup_send_blocker_send_logs", ["label01", "label02", "label03"], name: "index_dup_send_blocker_send_logs_on_label01__03", unique: true, using: :btree
   add_index "dup_send_blocker_send_logs", ["label01", "label02"], name: "index_dup_send_blocker_send_logs_on_label01__02", using: :btree
   add_index "dup_send_blocker_send_logs", ["label01"], name: "index_dup_send_blocker_send_logs_on_label01", using: :btree
 

@@ -20,7 +20,8 @@ class CreateDupSendBlockerSendLogs < ActiveRecord::Migration
       name: :index_dup_send_blocker_send_logs_on_label01__02
     }
     add_index :dup_send_blocker_send_logs, [:label01, :label02, :label03], {
-      name: :index_dup_send_blocker_send_logs_on_label01__03
+      name: :index_dup_send_blocker_send_logs_on_label01__03,
+      unique: true,
     }
   end
 end
