@@ -1,41 +1,47 @@
 # DupSendBlocker
 
-## これはなに？
-メールやSMSの2重送信を防ぐgemです。バッチ処理の2重起動や、マニュアル操作ミスなどによって、ユーザに2重で同じメールが送られてしまうことを防ぐ目的で使用します。
+This gem prevents duplicate mail and SMS messages from being sent.
+For example, it prevents batches from running multiple times or human errors.
 
-## インストール方法
-Gemfileに参照先を追加
+## Installing
+
+### Add to Gemfile
+
 ```
 gem 'dup_send_blocker', git: "https://#{auth}@git.pepabo.com/hosting/dup_send_blocker"
 ```
 
-インストール
+### Install
+
 ```
 bundle install
 ```
 
-migrationファイルのコピーと実行
+### Copy and execute migration file
+
 ```
 bundle exec rake dup_send_blocker:install:migrations
 bundle exec rake db:migrate
 ```
 
-## 使い方
-```
-# labelは3つまで指定できます
-# 同じlabelの組み合わせで送信しようとした場合は
-# 送信がブロックされます。
+## Usage
+
+```ruby
+# You can specify 3 labels.
+# If you try to send the same label combination, it will be blocked.
+
 labels = [
   "info",
   "2020-10-07",
   "U-1233"
 ]
+
 begin
   DupSendBlocker.perform!(labels) do
-    # ここに送信処理を書く
+    # Implement the sending process.
   end
 rescue DupSendBlocker::BlockError
-  # 同じlabelの組み合わせで送信済だった場合の処理
+  # Implement the process when it has already been sent.
 end
 ```
 
