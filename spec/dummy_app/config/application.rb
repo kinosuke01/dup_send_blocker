@@ -26,7 +26,8 @@ module DummyApp
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    # DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement.
+    # config.active_record.raise_in_transactional_callbacks = true
   end
 end
 

@@ -29,7 +29,8 @@ require 'pry-rails'
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
-  ActiveRecord::Migration.maintain_test_schema!
+  # DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement.
+  # ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
