@@ -8,7 +8,7 @@ For example, it prevents batches from running multiple times or human errors.
 ### Add to Gemfile
 
 ```
-gem 'dup_send_blocker', git: "https://#{auth}@git.pepabo.com/hosting/dup_send_blocker"
+gem 'dup_send_blocker'
 ```
 
 ### Install
